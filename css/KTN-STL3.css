@@ -11,67 +11,62 @@ Each section is 5mm*/
 /* Known Color Codes */
 .emcYellow {
   background-color: rgba(207, 168, 1) !important; /* 2 TB & 7.2K speed */
+  color: black !important;
 }
 
 .emcBlack {
   background-color: black !important; /* SATA / SAS */
+  color: white !important;
 }
 
+/*
 .hpOrange {
   background-color: #febe38 !important; /* Fibre Channel */
 }
-
+/*
 .hpWhite {
   background-color: #ffffff !important; /* SSD */
 }
-
+/*
 .hp .nonDP {
   background-color: #131313 !important;
   color: #ffffff !important;
 }
+*/
+/*
+div.KTN-STL3.LFF div.interface {
+  font-size: 14px;
+  font-weight: bold;
+}
+*/
 
 div.KTN-STL3 {
   display: inline-block;
   margin-top: 0.1cm;
   margin-bottom: 0.1cm;
-}
-
-div.KTN-STL3.LFF {
+  margin-left: 4%;
   width: 19.5mm;
   height: 15.5mm;
   background: black;
   -webkit-clip-path: polygon(0% 0%,19.50% 0.00%,15.50% 15.00%,0.00% 15.00%);
   clip-path: polygon(0% 0%,19.50% 0.00%,15.50% 15.00%,0.00% 15.00%);
+  font-size: 14px;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  vertical-align: center;  
+  text-align: left;
 }
 
 div.KTN-STL3 .interface {
-  vertical-align: center;  
-  text-align: left;
-  margin-top: 2%;
-  margin-left: 4%;
-  margin-bottom: -6%;
   color: white;
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  font-size: 10px;
   font-weight: bold;
 }
 
 div.KTN-STL3 .capacity {
-  vertical-align: center;
-  text-align: center;
-  margin-top: -6%;
-  margin-bottom: 0;
-  color: rgba(207, 168, 1);
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  color: black;
 }
 
 div.KTN-STL3 .speed {
-  vertical-align: center;
-  margin-top: 5%;
-  margin-bottom: 0;
-  text-align: center;  
-  color: rgba(207, 168, 1);
-  font-family: Arial, ' Helvetica Neue', Helvetica, sans-serif;
+  color: black;
 }
 
 /*
@@ -84,18 +79,3 @@ div.KTN-STL3 .divider {
  background-color: white;
 }
 */
-
-
-
-
-div.KTN-STL3.LFF div.capacity,
-div.KTN-STL3.LFF div.speed,
-div.KTN-STL3.LFF div.serial {
-  font-size: 12px;
-  font-weight: bold;
-}
-
-div.KTN-STL3.LFF div.interface {
-  font-size: 14px;
-  font-weight: bold;
-}
