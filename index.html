@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -6,13 +6,12 @@
   <title>Homelab caddy label maker</title>
   <!-- 
   Originally created by /u/tollsjo for the /r/homelab community in December 2016
-  Shadexic is working on dell SFF labels to include capacity and serial along with custom color top stripe for type identification in August 2021
   License: Creative Commons CC BY-SA 4.0
 -->
 <link rel="stylesheet" href="css/configurator.min.css">
-<link rel="stylesheet" href="css/iLabel.min.css">
-<link rel="stylesheet" href="css/hpLabel.css">
-<link rel="stylesheet" href="css/dellLabel.css">
+<link rel="stylesheet" href="css/hpLabel.min.css">
+<link rel="stylesheet" href="css/hpLabelGen8.min.css">
+<link rel="stylesheet" href="css/dellLabel.min.css">
 <link rel="stylesheet" href="css/smLabel.min.css">
 <link rel="stylesheet" href="css/ktn-stl3.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -24,7 +23,6 @@
 <div class="container">
   <div class="row">
   <div id="topContainer">
-      <img width="70px" height="70px" vspace="3" src="http://homelablabelmaker.shurilla14.com/reddit_snoo.png"/>
       Homelab caddy label maker
     </div>
 
@@ -74,7 +72,7 @@
     <hr>
       <div class="col-lg-12">
         <div class="col-md-8">
-          Modified by <a href="https://github.com/shadexic">shadexic</a> from <a href="https://github.com/BShurilla/homelablabelmaker">BShurilla's</a> revison of <a href="https://github.com/sco01/homelablabelmaker">sco01's</a> original label maker in August 2021 | #initfortheblinkenlights</div>
+          Originally created by <a href="https://www.reddit.com/user/tollsjo">/u/tollsjo</a> for <a href="https://www.reddit.com/r/homelab/">/r/homelab</a> in December 2016 | #initfortheblinkenlights</div>
         <div class="col-md-4">
           <p class="muted pull-right"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></p>
         </div>
@@ -202,63 +200,30 @@
           <div class="row">
             <div class="col-md-12">
               Disk Type:<br/>
-                        <div id='diskType' class="btn-group" data-toggle="buttons">
-                            <label for="SAS" class="btn btn-secondary btn-sm">
-                                <input type="radio" name="diskType" id="SAS">SAS
-                            </label>
-                            <label for="SATA" class="btn btn-secondary btn-sm active">
-                                <input type="radio" name="diskType" id="SATA" checked>SATA
-                            </label>
-                            <label for="SSD" class="btn btn-secondary btn-sm">
-                                <input type="radio" name="diskType" id="SSD">SSD
-                            </label>
-                            <label for="SASMDL" class="btn btn-secondary btn-sm">
-                                <input type="radio" name="diskType" id="SASMDL">SAS MDL
-                            </label>
-                            <label for="SATAMDL" class="btn btn-secondary btn-sm">
-                                <input type="radio" name="diskType" id="SATAMDL">SATA MDL
-                            </label>
-                            <label for="FC" class="btn btn-secondary btn-sm">
-                                <input type="radio" name="diskType" id="FC">Fibre Channel
-                            </label>
-                            <label for="SSNW" class="btn btn-secondary btn-sm">
-                                <input type="radio" name="diskType" id="SSNW">SSD SSNW
-                            </label>
-                            </div>
-                          </div>
-                        </div>
-          <div class="row">
-            <div class="col-md-12">
-              Dell Colors:<br />
-                          <div id='dellcolor' class="btn-group" data-toggle="buttons">
-                              <label for="fire" class="btn btn-secondary btn-sm">
-                                  <input type="radio" name="dellcolor" id="fire" />Firecuda (orange)
-                              </label>
-                              <label for="barracuda" class="btn btn-secondary btn-sm">
-                                  <input type="radio" name="dellcolor" id="barracuda" />Barracuda (green)
-                              </label>
-                              <label for="red" class="btn btn-secondary btn-sm">
-                                  <input type="radio" name="dellcolor" id="red" /> Red / Ironwolf / Nas
-                              </label>
-                              <label for="sky" class="btn btn-secondary btn-sm">
-                                  <input type="radio" name="dellcolor" id="sky" /> Skyhawk (cyan)
-                              </label>
-                              <label for="blue" class="btn btn-secondary btn-sm">
-                                  <input type="radio" name="dellcolor" id="blue" /> Blue (WD Blue)
-                              </label>
-                              <label for="dellgrey" class="btn btn-secondary btn-sm">
-                                  <input type="radio" name="dellcolor" id="dellgrey" />Default (Grey)
-                              </label>
-                              <label for="yellow" class="btn btn-secondary btn-sm">
-                                  <input type="radio" name="dellcolor" id="yellow" />Yellow
-                              </label>
-                              <label for="gradient" class="btn btn-secondary btn-sm">
-                                  <input type="radio" name="dellcolor" id="gradient">testgradient
-                              </label>
-                              
-
-                          </div>
-                        </div>
+              <div id='diskType' class="btn-group" data-toggle="buttons">
+                <label for="SAS" class="btn btn-secondary btn-sm">
+                  <input type="radio" name="diskType" id="SAS">SAS
+                </label>
+                <label for="SATA" class="btn btn-secondary btn-sm active">
+                  <input type="radio" name="diskType" id="SATA" checked>SATA
+                </label>
+                <label for="SSD" class="btn btn-secondary btn-sm">
+                  <input type="radio" name="diskType" id="SSD">SSD
+                </label>
+                <label for="SASMDL" class="btn btn-secondary btn-sm">
+                  <input type="radio" name="diskType" id="SASMDL">SAS MDL
+                </label>
+                <label for="SATAMDL" class="btn btn-secondary btn-sm">
+                  <input type="radio" name="diskType" id="SATAMDL">SATA MDL
+                </label>
+                <label for="FC" class="btn btn-secondary btn-sm">
+                  <input type="radio" name="diskType" id="FC">Fibre Channel
+                </label>
+                <label for="SSNW" class="btn btn-secondary btn-sm">
+                  <input type="radio" name="diskType" id="SSNW">SSD SSNW
+                </label>
+              </div>
+            </div>
           </div>
           <div class="row">
             <div class="col-md-12">
@@ -270,7 +235,7 @@
                   </div>
                 </div>
                 <div class="form-group has-feedback">
-                  <label for="serial">Serial/Part# (For DELL SFF use the last x chars)</label><br/>
+                  <label for="serial">Serial/Part#</label><br/>
                   <div class="input-group">
                     <input class="form-control" type="text" pattern="^[_\s\-A-z0-9]{1,}$" maxlength="18" placeholder="SPARE 123456-789" id="serial" required>
                   </div>
@@ -287,10 +252,10 @@
           <div class="row">
             <div class="col-md-12">
               <div>
-                <div class="form-check form-switch">Add More</div>
-                <div id='addMoreContainer' class="form-check form-switch">
+                <div class="pull-left switch-label">Add More</div>
+                <div id='addMoreContainer' class="material-switch pull-left">
                   <input id="addMore" type="checkbox">
-                  <label for="addMore" class="form-check-label"></label>
+                  <label for="addMore" class="label-warning"></label>
                 </div>
               </div>
             </div>
@@ -308,8 +273,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.8/validator.js"></script>
-<script src="js/configurator.js"></script>
+<script src="js/configurator.min.js"></script>
 
 </body>
 </html>
-
