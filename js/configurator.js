@@ -68,6 +68,17 @@ $( function() {
         //  disableSelectorOption(diskTypeSelector, s);
         //});
       }
+      if (vendorType === 'emc') {
+        disableSelector(interfaceTypeSelector);
+        disableSelector(interfaceSpeedSelector);
+        disableSelector(genSelector);
+        disableSelector(diskTypeSelector);
+        disableSelector(dellcolorSelector);
+        //serial.attr('disabled',true).removeAttr('required').attr('placeholder','Not Applicable').val('');
+        //['SASMDL', 'SATAMDL', 'FC', 'SSNW'].forEach( function(s) {
+        //  disableSelectorOption(diskTypeSelector, s);
+        //});
+      }
       if (vendorType === 'sm') {
         disableSelector(interfaceTypeSelector);
         disableSelector(interfaceSpeedSelector);
@@ -105,7 +116,7 @@ $( function() {
         });
       } else { 
           console.info ('Gen' + gen + ' is selected enable disabled options');
-          if (vendorType !== 'dell' && vendorType !== 'sm') {
+          if (vendorType !== 'dell' && vendorType !== 'sm' && vendorType !== 'ecm') {
               ['SASMDL', 'SATAMDL', 'FC', 'SSNW'].forEach( function(s) {
                 enableSelectorOption(diskTypeSelector, s);
               });
@@ -189,7 +200,18 @@ $( function() {
     if (/SSD/.test(type) && vendorType !== 'dell' && vendorType !== 'sm') { diskTypeObj.text(String.fromCharCode(160)); }
 
   }
-    function dellcolorset(formFactor, dellcolor) {
+    function emcTypeToColor(gen,type,speed,obj) {
+    diskSpeedObj = obj.find('.speed');
+    diskTypeObj  = obj.find('.interface');
+	
+    if (diskType == "SAS" ) {
+        switch (true) {
+          case /^SAS$/gi.test(type):
+            .interface.addClass('emcBlack'); break;
+        }
+    }	
+	
+	function dellcolorset(formFactor, dellcolor) {
         dellcolorObj = obj.find('.dellcolor');
         labelColor = obj.find('.custcolor')
 
@@ -216,6 +238,7 @@ $( function() {
     diskSpeedLabel = '';
     diskSpeedDell  = '';
     diskSpeedSM    = '';
+	  diskSpeedESM   = '';
 
     formFactor      = formFactor      === undefined ? $('#formFactor label.active').attr('for')     : formFactor;
     interfaceType   = interfaceType   === undefined ? $('#interfaceType label.active').attr('for')  : interfaceType;
@@ -328,6 +351,14 @@ $( function() {
           break;
         }
       break;
+	  case 'emc':
+	    console.info ('Disk Speed EMC Label : ' + diskSpeedEMC);
+        switch (formFactor) {
+          case 'LFF':
+            labelString = "<div class='emc LFF'><div class='interface'>{0}</div><div class='capacity'>{1}</div><div class='speed'>{2}</div></div>".format(diskType,diskCapacity,diskSpeedEMC);
+            break;
+	  }
+      break;
     }
 
     if (($('#' + targetTable + ' tr').length === 0) || $('#' + targetTable + ' tr:last td').length >= targetNumber) { $( '#' + targetTable + ' tbody' ).append( '<tr>' ); }
@@ -342,6 +373,13 @@ $( function() {
       $('#' + targetTable + ' td .dell.LFF .speed').last().remove();
       $('#' + targetTable + ' td .dell.LFF .capacity').last().css({'line-height': '0.8cm'})
     }
+        /* emc SSD fix */
+    if (/SSD/i.test(diskType) && vendorType === 'emc' && formFactor === 'LFF') {
+      console.info ('emc SSD Fix');
+      $('#' + targetTable + ' td .emc.LFF .speed').last().remove();
+      $('#' + targetTable + ' td .emc.LFF .capacity').last().css({'line-height': '0.8cm'})
+    }
+
 
     if ($('#multiplier').val() > 0 && multiAddRunning !== 1) {
       var multi = $('#multiplier').val();
@@ -537,6 +575,18 @@ $( function() {
           {formFactor: 'LFF', interfaceType: '', interfaceSpeed: '', diskSpeed: '', diskType: 'SATA', diskCapacity: '8 TB', diskSerial: ''},
           {formFactor: 'LFF', interfaceType: '', interfaceSpeed: '', diskSpeed: '', diskType: 'SATA', diskCapacity: '480 GB', diskSerial: ''},
           {formFactor: 'LFF', interfaceType: '', interfaceSpeed: '', diskSpeed: '', diskType: 'SSD', diskCapacity: '1 TB', diskSerial: ''},
+        ]
+      },
+      EMCLFF: {
+        title: 'EMC 3.5" (LFF)',
+	      vendorType: 'emc',
+	      fields: [
+          {formFactor: 'LFF', diskSpeed: '7.2K', diskType: 'SATA', diskCapacity: '300 GB', diskSerial: '123456'},
+          {formFactor: 'LFF', diskSpeed: '10K', diskType: 'SAS', diskCapacity: '500 GB', diskSerial: '123456'},
+          {formFactor: 'LFF', diskSpeed: '15k', diskType: 'SAS', diskCapacity: '1 TB', diskSerial: '123456'},
+          {formFactor: 'LFF', diskSpeed: 'SSD', diskType: 'SATA', diskCapacity: '256 GB', diskSerial: '123456'},
+          {formFactor: 'LFF', diskSpeed: '7.2K', diskType: 'SATA', diskCapacity: '2 TB', diskSerial: '123456'},
+          {formFactor: 'LFF', diskSpeed: '10K', diskType: 'SAS', diskCapacity: '900 GB', diskSerial: '123456'}
         ]
       }
     };
