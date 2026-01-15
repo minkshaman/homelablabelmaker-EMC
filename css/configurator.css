@@ -31,7 +31,7 @@ body {
 
 .container {
   width: auto;
-  max-width: 680px;
+  max-width: 900px;
   padding: 0 15px;
 }
 .container .text-muted {
@@ -157,8 +157,11 @@ div#mainContainer table .dell2 {
   .btn.disabled, .btn:disabled { opacity: 0.4 !important; }
 }
 
-@media screen and (min-width: 700px) {
-  #configuratorMain .modal-dialog  {width:650px;}
+@media screen and (min-width: 500px) {
+    #configuratorMain .modal-dialog  {width:600px;}
+}
+@media (min-width: 576px) {
+	#vendorPicker  .modal-dialog  {width:900px !important;}
 }
 
 #topContainer {
@@ -178,13 +181,19 @@ div#mainContainer table .dell2 {
 
 /* Vendor select screen */
 
+
 table#vendors img {
   width: 180px;
 }
 
+table#vendors {
+  table-layout: fixed ;
+  width: 100% 
+}
+
 table#vendors td {
-  width: 33%;
   text-align: center;
+  width: 25%
 }
 
 table#vendors img {
