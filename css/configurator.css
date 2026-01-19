@@ -190,11 +190,11 @@ table#vendors img {
 
 table#vendors {
   table-layout: fixed ;
-  width: 100% 
+  width: 100%;
 }
 
 table#vendors td {
-  width: 33%
+  width: 33%;
   text-align: center;
 }
 
