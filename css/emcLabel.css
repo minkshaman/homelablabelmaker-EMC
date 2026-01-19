@@ -8,7 +8,10 @@ right - 20mm
 
 Each section is 5mm*/
 
-/* Known Color Codes */
+/* Known Color Codes 
+1TB is green
+3TB is light green
+4TB+ is Olive? */
 .emcYellow {
   background-color: #E4D00A !important; /* 2 TB & 7.2K speed */
   color: black !important;
@@ -19,26 +22,6 @@ Each section is 5mm*/
   color: white !important;
 }
 
-/*
-.hpOrange {
-  background-color: #febe38 !important; /* Fibre Channel */
-}
-/*
-.hpWhite {
-  background-color: #ffffff !important; /* SSD */
-}
-/*
-.hp .nonDP {
-  background-color: #131313 !important;
-  color: #ffffff !important;
-}
-*/
-/*
-div.emc.LFF div.interface {
-  font-size: 14px;
-  font-weight: bold;
-}
-*/
 div.emc {
   display: inline-block;
   margin-left: 10px;
@@ -77,24 +60,48 @@ div.emc .capacity {
 }
 
 div.emc .speed {
-  background-color: #E4D00A !important; /* 2 TB & 7.2K speed */
+  background-color: #E4D00A; /* 2 TB & 7.2K speed */
+  color: black;
+  padding-left: 10px;
+  padding-top: 1%;
+  height: 33.33%;
+}
+
+div.emc15kspeed {
+  background-color: #F0FFFF !important; /* 2 TB & 7.2K speed */
   color: black !important;
   padding-left: 10px;
   padding-top: 1%;
   height: 33.33%;
 }
 
+div.emc10kspeed {
+  background-color: #DC143C !important; /* 2 TB & 7.2K speed */
+  color: #F8F3ED !important;
+  padding-left: 10px;
+  padding-top: 1%;
+  height: 33.33%;
+}
+
+div.emc54kspeed {
+  background-color: #00A300 !important; /* 2 TB & 7.2K speed */
+  color: #black !important;
+  padding-left: 10px;
+  padding-top: 1%;
+  height: 33.33%;
+}
 /* SSD Colours */
 
-div.emc .SSDspeed {
+div.SSDspeed {
   background-color: #ADD8E6 !important; /* 2 TB & 7.2K speed */
   color: black !important;
-  padding-left: 10px;
+  padding-left: 5px;
   padding-top: 14%;
   vertical-align: middle;
   height: 66.66%;
 }
 
+/* Speed Colours */
 
 /*
 div.emc .divider {
