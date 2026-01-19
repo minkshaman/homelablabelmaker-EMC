@@ -319,16 +319,16 @@ $( function() {
             labelString = "<div class='emc LFF'><div class='interface'>{0}</div><div class='SSDspeed'>{1}</div></div>".format(diskType,diskCapacity);
           break;
           case '5.4K':
-            labelString = "<div class='emc LFF'><div class='interface'>{0}</div><div class='capacity'>{1}</div><div class='speed'>{2}</div></div>".format(diskType,diskCapacity,diskSpeedEMC);
+            labelString = "<div class='emc LFF'><div class='interface'>{0}</div><div class='capacity'>{1}</div><div class='emc54kspeed'>{2}</div></div>".format(diskType,diskCapacity,diskSpeedEMC);
           break;
           case '7.2K':
             labelString = "<div class='emc LFF'><div class='interface'>{0}</div><div class='capacity'>{1}</div><div class='speed'>{2}</div></div>".format(diskType,diskCapacity,diskSpeedEMC);
           break;
 		  case '10K':
-            labelString = "<div class='emc LFF'><div class='interface'>{0}</div><div class='capacity'>{1}</div><div class='speed'>{2}</div></div>".format(diskType,diskCapacity,diskSpeedEMC);
+            labelString = "<div class='emc LFF'><div class='interface'>{0}</div><div class='capacity'>{1}</div><div class='emc10kspeed'>{2}</div></div>".format(diskType,diskCapacity,diskSpeedEMC);
           break;
 		  case '15K':
-            labelString = "<div class='emc LFF'><div class='interface'>{0}</div><div class='capacity'>{1}</div><div class='speed'>{2}</div></div>".format(diskType,diskCapacity,diskSpeedEMC);
+            labelString = "<div class='emc LFF'><div class='interface'>{0}</div><div class='capacity'>{1}</div><div class='emc15kspeed'>{2}</div></div>".format(diskType,diskCapacity,diskSpeedEMC);
           break;
         }		
       break;	  
