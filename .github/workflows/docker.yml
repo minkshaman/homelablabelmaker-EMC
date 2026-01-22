@@ -52,14 +52,13 @@ jobs:
         if: ${{ env.IMAGE_TAG != '' }}
         with:
           context: .
-          push: ${{ secrets.DOCKERHUB_USERNAME != '' }}
+          push: true
           build-args: |
             COMMIT=${{ github.sha }}
             BRANCH=${{ env.BRANCH }}
             NOW=${{ env.NOW }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/homelablabelmaker-EMC:${{env.IMAGE_TAG}}
             ghcr.io/${{ github.actor }}/homelablabelmaker-EMC:${{env.IMAGE_TAG}}
           cache-from: type=gha
           cache-to: type=gha,mode=max
